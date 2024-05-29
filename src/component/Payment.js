@@ -10,7 +10,8 @@ export const Payment = () => {
     cardHolderName: "",
     cardNumber: "",
     expiryDate: "",
-    cvv: ""
+    cvv: "",
+    address: ""
   });
 
   const handleInputChange = (e) => {
@@ -19,14 +20,15 @@ export const Payment = () => {
   };
 
   const handlePayment = () => {
-    const { cardHolderName, cardNumber, expiryDate, cvv } = cardDetails;
+    const { cardHolderName, cardNumber, expiryDate, cvv, address } = cardDetails;
 
-    if (cardHolderName === "" || cardNumber === "" || expiryDate === "" || cvv === "") {
+    if (cardHolderName === "" || cardNumber === "" || expiryDate === "" || cvv === "" || address === "") {
       alert("Please fill in all the details.");
       return;
     }
+
     if (!/^[A-Za-z\s]+$/.test(cardHolderName)) {
-      alert("Please enter a valid card holder name");
+      alert("Please enter a valid card holder name.");
       return;
     }
 
@@ -40,6 +42,11 @@ export const Payment = () => {
       return;
     }
 
+    if (!/^[A-Za-z0-9\s]+$/.test(address)) {
+      alert("Please enter a valid address");
+      return;
+    }
+
     const paymentSuccess = true; // Simulating successful payment for demo
     if (paymentSuccess) {
       alert("Payment successful");
@@ -50,11 +57,11 @@ export const Payment = () => {
   };
 
   return (
-<div
+    <div
       className="min-h-screen bg-cover bg-center text-black"
       style={{ backgroundImage: `url(${bgImage})` }} // Apply the background image
     >
-           <header className="bg-purple-800 h-[12%] text-white py-4 flex justify-center items-center">
+      <header className="bg-purple-800 h-[12%] text-white py-4 flex justify-center items-center">
         <ul className="flex space-x-6">
           <Link to='/Home' className="home hover:bg-lightcoral hover:text-blue-600">HOME</Link>
           <Link to='/Contact' className="home hover:bg-lightcoral hover:text-blue-600">CONTACT US</Link>
@@ -88,6 +95,10 @@ export const Payment = () => {
                 <td className="pr-4"><h3 className="text-xl">CVV</h3></td>
                 <td><input type="number" id="cvv" name="cvv" value={cardDetails.cvv} onChange={handleInputChange} placeholder="Enter CVV" className="border-2 border-gray-300 rounded px-2 py-1" /></td>
               </tr>
+              <tr className="my-4">
+                <td className="pr-4"><h3 className="text-xl">Address</h3></td>
+                <td><textarea id="address" name="address" value={cardDetails.address} onChange={handleInputChange} placeholder="Enter your Address" className="border-2 border-gray-300 rounded px-2 py-1 w-full" rows="4"></textarea></td>
+              </tr>
               <tr>
                 <td className="pr-4"><h3 className="text-xl">Total Amount</h3></td>
                 <td><input type="text" value={`₹${totalAmount}`} readOnly className="border-2 border-gray-300 rounded px-2 py-1" /></td>
@@ -99,14 +110,11 @@ export const Payment = () => {
           <button id="payButton" onClick={handlePayment} className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">PAY</button>
         </div>
       </center>
-      <footer className="bg-amber-200 mt-8 mb-15	 p-5 text-center">
+      <footer className="bg-amber-200 mt-8 mb-15 p-5 text-center">
         <h4>Contact</h4>
         <h4>+91 7744556699</h4>
         <h4>chingufashion@gmail.com</h4>
       </footer>
     </div>
-
-  
-    
   );
 };
