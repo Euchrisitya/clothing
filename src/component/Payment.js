@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import bgImage from './bgg.jpg'; // Import the background image
 
 export const Payment = () => {
   const location = useLocation();
@@ -49,8 +50,11 @@ export const Payment = () => {
   };
 
   return (
-    <div className="bg-purple-200 w-full h-[800px] text-black">
-      <header className="bg-purple-800 h-[12%] text-white py-4 flex justify-center items-center">
+<div
+      className="min-h-screen bg-cover bg-center text-black"
+      style={{ backgroundImage: `url(${bgImage})` }} // Apply the background image
+    >
+           <header className="bg-purple-800 h-[12%] text-white py-4 flex justify-center items-center">
         <ul className="flex space-x-6">
           <Link to='/Home' className="home hover:bg-lightcoral hover:text-blue-600">HOME</Link>
           <Link to='/Contact' className="home hover:bg-lightcoral hover:text-blue-600">CONTACT US</Link>
@@ -95,6 +99,14 @@ export const Payment = () => {
           <button id="payButton" onClick={handlePayment} className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">PAY</button>
         </div>
       </center>
+      <footer className="bg-amber-200 mt-8 mb-15	 p-5 text-center">
+        <h4>Contact</h4>
+        <h4>+91 7744556699</h4>
+        <h4>chingufashion@gmail.com</h4>
+      </footer>
     </div>
+
+  
+    
   );
 };

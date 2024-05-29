@@ -12,6 +12,7 @@ import sevenImg from './tzuyu.jpg';
 import sevImg from './bag.jpg';
 import whiImg from './combo.jpg';
 import sevblImg from './cup.jpg';
+import bgImage from './bgg.jpg'; // Import the background image
 
 
 export const Lesserafim = () => {
@@ -24,8 +25,11 @@ export const Lesserafim = () => {
 
 
   return (
-    <div className="bg-purple-200	 w-full h-[1650px]	 text-black">
-          <header className="bg-purple-800 h-[5%] text-white py-4 flex justify-center items-center">
+<div
+      className="min-h-screen bg-cover bg-center text-black"
+      style={{ backgroundImage: `url(${bgImage})` }} // Apply the background image
+    >
+                <header className="bg-purple-800 h-[5%] text-white py-4 flex justify-center items-center">
         
        
           <ul className="flex space-x-6">

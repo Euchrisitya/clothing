@@ -10,6 +10,7 @@ import layoverImg from './rosewhi.jpg';
 import purpleHoodieImg from './lether.jpg';
 import whiteHoodieImg from './yell.jpg';
 import tshirtImg from './rm.jpg';
+import bgImage from './bgg.jpg'; // Import the background image
 
 
 export const Home = () => {
@@ -21,8 +22,11 @@ export const Home = () => {
   };
 
   return (
-    <div className="bg-purple-200 w-full h-[1650px] text-black">
-      <header className="bg-purple-800 h-[6%] text-white py-4 flex justify-center items-center">
+<div
+      className="min-h-screen bg-cover bg-center text-black"
+      style={{ backgroundImage: `url(${bgImage})` }} // Apply the background image
+    >
+            <header className="bg-purple-800 h-[6%] text-white py-4 flex justify-center items-center">
         <ul className="flex space-x-6">
           <Link to="/Home" className="home hover:bg-lightcoral hover:text-blue-600">HOME</Link>
           <Link to="/Contact" className="home hover:bg-lightcoral hover:text-blue-600">CONTACT US</Link>
@@ -31,7 +35,7 @@ export const Home = () => {
           <Link to="/Login" className="home hover:bg-lightcoral hover:text-blue-600">LOGIN</Link>
         </ul>
       </header>
-
+      
       <center className="my-8">
         <h1 id="name" className="text-fuchsia-600 text-5xl">K-PHORIA FASHION</h1>
       </center>
@@ -97,7 +101,7 @@ export const Home = () => {
         />
       </div>
 
-      <footer className="bg-fuchsia-300 mt-8 mb-10 p-5 text-center">
+      <footer className="bg-amber-200 mt-8 mb-15 p-5 text-center">
         <h4>Contact</h4>
         <h4>+91 7744556699</h4>
         <h4>chingufashion@gmail.com</h4>

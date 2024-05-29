@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import bgImage from './bgg.jpg'; // Import the background image
 
 export const Contact = () => {
     const navigate = useNavigate();
@@ -19,8 +20,11 @@ export const Contact = () => {
   };
 
   return (
-    <div className="bg-purple-200 w-full h-[900px] text-black">
-      <header className="bg-purple-800 h-[11%] text-white py-4 flex justify-center items-center">
+<div
+      className="min-h-screen bg-cover bg-center text-black"
+      style={{ backgroundImage: `url(${bgImage})` }} // Apply the background image
+    >
+            <header className="bg-purple-800 h-[11%] text-white py-4 flex justify-center items-center">
         
           <ul className="flex space-x-6">
             <Link to='/Home' className="home hover:bg-lightcoral hover:text-blue-600">HOME</Link>
@@ -55,7 +59,7 @@ export const Contact = () => {
         </center>
       </main>
     
-      <footer className="bg-fuchsia-300	 p-5 text-center">
+      <footer className="bg-amber-200	 p-5 text-center">
         <h4>Contact</h4>
         <h4>+91 7744556699</h4>
         <h4>chingufashion@gmail.com</h4>

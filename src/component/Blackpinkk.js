@@ -20,6 +20,7 @@ import btssImg from './seat.jpg';
 import jiminImg from './pink.jpg';
 import namImg from './pinkk.jpg';
 import jinImg from './blink.jpg';
+import bgImage from './bgg.jpg'; // Import the background image
 
 export const Blackpinkk = () => {
   const navigate = useNavigate();
@@ -31,7 +32,10 @@ export const Blackpinkk = () => {
 
 
   return (
-    <div className="bg-purple-200	 w-full h-[2530px]	 text-black">
+<div
+      className="min-h-screen bg-cover bg-center text-black"
+      style={{ backgroundImage: `url(${bgImage})` }} // Apply the background image
+    >      
     <header className="bg-purple-800 h-[5%] text-white py-4 flex justify-center items-center">
   
  

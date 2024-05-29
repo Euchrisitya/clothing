@@ -20,6 +20,7 @@ import btssImg from './gi.jpg';
 import jiminImg from './hwa.jpg';
 import namImg from './tshi.jpg';
 import jinImg from './hea.jpg';
+import bgImage from './bgg.jpg'; // Import the background image
 
 export const Ateez = () => {
   const navigate = useNavigate();
@@ -30,8 +31,11 @@ export const Ateez = () => {
   };
 
   return (
-    <div className="bg-purple-200	 w-full h-[2600px]	 text-black">
-          <header className="bg-purple-800 h-[5%] text-white py-4 flex justify-center items-center">
+<div
+      className="min-h-screen bg-cover bg-center text-black"
+      style={{ backgroundImage: `url(${bgImage})` }} // Apply the background image
+    >
+                <header className="bg-purple-800 h-[5%] text-white py-4 flex justify-center items-center">
         
        
           <ul className="flex space-x-6">

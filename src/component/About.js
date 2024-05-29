@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import bgImage from './bg.jpg'; // Import the background image
+import bgImage from './bgg.jpg'; // Import the background image
 
 export const About = () => {
   return (
     <div
-      className="bg-cover bg-center w-[1450px] h-[90%]text-black"
+      className="min-h-screen bg-cover bg-center text-black"
       style={{ backgroundImage: `url(${bgImage})` }} // Apply the background image
     >
       <header className="bg-purple-800 h-[100px] text-white py-4 flex justify-center items-center">

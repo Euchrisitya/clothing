@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import bgImage from './bgg.jpg'; // Import the background image
 
 export const Sign = () => {
   const navigate = useNavigate();
@@ -31,8 +32,11 @@ export const Sign = () => {
   };
 
   return (
-    <div className="bg-purple-200 w-full h-[2000px] text-black">
-      <header className="bg-purple-800 h-[5%] text-white py-4 flex justify-center items-center">
+<div
+      className="min-h-screen bg-cover bg-center text-black"
+      style={{ backgroundImage: `url(${bgImage})` }} // Apply the background image
+    >
+            <header className="bg-purple-800 h-[5%] text-white py-4 flex justify-center items-center">
         <ul className="flex space-x-6">
           <Link to='/Home' className="home hover:bg-lightcoral hover:text-blue-600">HOME</Link>
           <Link to='/Contact' className="home hover:bg-lightcoral hover:text-blue-600">CONTACT US</Link>
