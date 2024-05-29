@@ -34,7 +34,8 @@ export const Contact = () => {
       </header>
       <main className="text-center p-10">
         <h1 id="name" className="text-fuchsia-600 text-5xl">K-PHORIA FASHION</h1>
-        <form id="contactForm" className="mt-10" onSubmit={handleSubmit}>
+        <center>
+        <form id="contactForm" className="bg-white p-9 w-[40%] text-left rounded-lg shadow-md border border-gray-300 mt-10" onSubmit={handleSubmit}>
           <table className="mx-auto">
             <tbody>
               <tr>
@@ -48,9 +49,12 @@ export const Contact = () => {
               </tr>
             </tbody>
           </table>
-          <button id="btn1" className="mt-5 px-5 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">SUBMIT</button>
+        
+          <center><button id="btn1" className="mt-5 px-5 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">SUBMIT</button></center>
         </form>
+        </center>
       </main>
+    
       <footer className="bg-fuchsia-300	 p-5 text-center">
         <h4>Contact</h4>
         <h4>+91 7744556699</h4>

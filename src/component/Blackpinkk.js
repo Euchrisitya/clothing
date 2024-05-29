@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import layoverImg from './bl.jpg'; // Adjust the import paths as necessary
 import purpleHoodieImg from './t.jpg';
 import whiteHoodieImg from './heart.jpg';
@@ -22,9 +22,13 @@ import namImg from './pinkk.jpg';
 import jinImg from './blink.jpg';
 
 export const Blackpinkk = () => {
-  const handleBuyClick = () => {
-    window.location.href = '/Payment';
+  const navigate = useNavigate();
+  
+
+  const handleBuyClick = (price) => {
+    navigate('/Payment', { state: { totalAmount: price } });
   };
+
 
   return (
     <div className="bg-purple-200	 w-full h-[2530px]	 text-black">
@@ -51,25 +55,25 @@ export const Blackpinkk = () => {
           <Product
             imgSrc={layoverImg}
             description="BLACKPINK T-SHIRT"
-            price="RS.2499"
+            price={2499}
             onBuyClick={handleBuyClick}
           />
           <Product
             imgSrc={purpleHoodieImg}
             description="BLACKPINK T-SHIRT"
-            price="RS.2499"
+            price={2499}
             onBuyClick={handleBuyClick}
           />
           <Product
             imgSrc={whiteHoodieImg}
             description="BLACKPINK HOODIE"
-            price="RS.3999"
+            price={3999}
             onBuyClick={handleBuyClick}
           />
           <Product
             imgSrc={tshirtImg}
             description="BLACKPINK SIGNED T-SHIRT"
-            price="RS.3999"
+            price={3999}
             onBuyClick={handleBuyClick}
           />
         </div>
@@ -80,22 +84,22 @@ export const Blackpinkk = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
           <Product imgSrc={yoonImg} 
           description="BLACKPINK CROP TOP"
-          price="Rs.1999"
+          price={1999}
           onBuyClick={handleBuyClick} />
 
           <Product imgSrc={agustImg}
           description="BLACKPINK T-SHIRT"
-          price="Rs.2499"
+          price={2499}
           onBuyClick={handleBuyClick} />
 
           <Product imgSrc={dayImg} 
           description="ICE-CREAM T-SHIRT"
-          price="Rs.2499"
+          price={2499}
           onBuyClick={handleBuyClick} />
 
           <Product imgSrc={blackImg} 
           description="BLACKPINK PINK PILLOW"
-          price="Rs.2999"
+          price={2999}
           onBuyClick={handleBuyClick} />
         </div>
 
@@ -105,22 +109,22 @@ export const Blackpinkk = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
           <Product imgSrc={sevenImg} 
           description="BP TOUR T-SHIRT"
-          price="Rs.3999"
+          price={3999}
           onBuyClick={handleBuyClick} />
 
           <Product imgSrc={sevImg} 
           description="BP T-SHIRT"
-          price="Rs.2999"
+          price={2999}
           onBuyClick={handleBuyClick} />
 
           <Product imgSrc={whiImg}
           description="LISA PRINTED T-SHIRT"
-          price="Rs.2999"          
+          price={2999}        
           onBuyClick={handleBuyClick} />
 
           <Product imgSrc={sevblImg}
           description="JENNIE PRINTED T-SHIRT"
-          price="Rs.3999"
+          price={3999}
           onBuyClick={handleBuyClick} />
         </div>
 
@@ -130,43 +134,43 @@ export const Blackpinkk = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
           <Product imgSrc={kookImg}
           description="JISOO PRINTED T-SHIRT"
-          price="Rs.2499"
+          price={2499}
           onBuyClick={handleBuyClick} />
 
           <Product imgSrc={minImg} 
           description="ROSE PRINTED T-SHIRT"
-          price="Rs.2499"
+          price={2499}
           onBuyClick={handleBuyClick} />
 
           <Product imgSrc={jiImg}
           description="BLACKPINK PRINTED T-SHIRT"
-          price="Rs.2499"
+          price={2499}
           onBuyClick={handleBuyClick} />
 
           <Product imgSrc={taeImg} 
           description="BLACKPINK T-SHIRT"
-          price="Rs.2499"
+          price={2499}
           onBuyClick={handleBuyClick} />
 
 
           <Product imgSrc={btssImg}
           description="BLACKPINK PRINTED T-SHIRT"
-          price="Rs.2499"
+          price={2499}
           onBuyClick={handleBuyClick} />
 
           <Product imgSrc={jiminImg} 
           description="PINK VENOM T-SHIRT"
-          price="Rs.2499"
+          price={2499}
           onBuyClick={handleBuyClick} />
 
           <Product imgSrc={namImg} 
           description="BP PRINTED SWEATSHIRT"
-          price="Rs.2999"
+          price={2999}
           onBuyClick={handleBuyClick} />
 
           <Product imgSrc={jinImg}
           description="BP PRINTED T-SHIRT"
-          price="Rs.2999"
+          price={2999}
           onBuyClick={handleBuyClick} />
         </div>
         <div className="flex justify-center mt-10">
@@ -184,9 +188,9 @@ const Product = ({ imgSrc, description, price, onBuyClick }) => {
     <div className="flex flex-col items-center">
       <img src={imgSrc} alt={description} className="w-full h-60 object-cover mb-4" />
       {description && <p className="text-center mb-2">{description}</p>}
-      {price && <p className="text-center mb-4">{price}</p>}
+      {price && <p className="text-center mb-4">₹{price}</p>}
       <button
-        onClick={onBuyClick}
+        onClick={() => onBuyClick(price)}
         className="bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700"
       >
         BUY

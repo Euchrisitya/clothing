@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import layoverImg from './twice.jpg'; // Adjust the import paths as necessary
 import purpleHoodieImg from './tw.jpg';
 import whiteHoodieImg from './tiw.jpg';
@@ -15,9 +15,13 @@ import sevblImg from './cup.jpg';
 
 
 export const Lesserafim = () => {
-  const handleBuyClick = () => {
-    window.location.href = '/Payment';
+  const navigate = useNavigate();
+  
+
+  const handleBuyClick = (price) => {
+    navigate('/Payment', { state: { totalAmount: price } });
   };
+
 
   return (
     <div className="bg-purple-200	 w-full h-[1650px]	 text-black">
@@ -44,26 +48,26 @@ export const Lesserafim = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
           <Product
             imgSrc={layoverImg}
-            description="LAYOVER NUDE COLOR HOODIE"
-            price="RS.3999"
+            description="TWICE T-SHIRT"
+            price={3999}
             onBuyClick={handleBuyClick}
           />
           <Product
             imgSrc={purpleHoodieImg}
-            description="LAYOVER PURPLE COLOR HOODIE"
-            price="RS.3999"
+            description="TWICE SWEATSHIRT"
+            price={3999}
             onBuyClick={handleBuyClick}
           />
           <Product
             imgSrc={whiteHoodieImg}
-            description="LAYOVER WHITE COLOR HOODIE"
-            price="RS.3999"
+            description="TWICE BLACK T-SHIRT"
+            price={3999}
             onBuyClick={handleBuyClick}
           />
           <Product
             imgSrc={tshirtImg}
-            description="LAYOVER T-SHIRT"
-            price="RS.2999"
+            description="TWICE PINK SWEATSHIRT"
+            price={2999}
             onBuyClick={handleBuyClick}
           />
         </div>
@@ -73,23 +77,23 @@ export const Lesserafim = () => {
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
           <Product imgSrc={yoonImg} 
-          description="SUGA HOODIE(white)"
-          price="Rs.4999"
+            description="NAYEON SWEATSHIRT"
+            price={4999}
           onBuyClick={handleBuyClick} />
 
           <Product imgSrc={agustImg}
-          description="AGUST-D T-SHIRT"
-          price="Rs.2999"
+            description="SANA SWEATSHIRT"
+            price={2999}
           onBuyClick={handleBuyClick} />
 
           <Product imgSrc={dayImg} 
-          description="D-DAY SWEATSHIRT"
-          price="Rs.3499"
+            description="MOMO SWEATSHIRT"
+            price={3499}
           onBuyClick={handleBuyClick} />
 
           <Product imgSrc={blackImg} 
-          description="AGUST-D T-SHIRT"
-          price="Rs.2999"
+            description="CHAEYOUNG SWEATSHIRT"
+            price={2999}
           onBuyClick={handleBuyClick} />
         </div>
 
@@ -98,23 +102,23 @@ export const Lesserafim = () => {
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
           <Product imgSrc={sevenImg} 
-          description="SEVEN WHITE HOODIE"
-          price="Rs.3999"
+            description="TZUYU SWEATSHIRT"
+            price={3999}
           onBuyClick={handleBuyClick} />
 
           <Product imgSrc={sevImg} 
-          description="SEVEN BLACK T-SHIRT"
-          price="Rs.2999"
+          description="TWICE BAG"
+          price={2999}
           onBuyClick={handleBuyClick} />
 
           <Product imgSrc={whiImg}
-          description="SEVEN WHITE T-SHIRT"
-          price="Rs.2999"          
+            description="TWICE SWEATSHIRTS SET"
+            price={2999}          
           onBuyClick={handleBuyClick} />
 
           <Product imgSrc={sevblImg}
-          description="SEVEN BLACK HOODIE"
-          price="Rs.3999"
+          description="SANA BLACK CUP"
+          price={3999}
           onBuyClick={handleBuyClick} />
         </div>
 
@@ -133,9 +137,9 @@ const Product = ({ imgSrc, description, price, onBuyClick }) => {
     <div className="flex flex-col items-center">
       <img src={imgSrc} alt={description} className="w-full h-60 object-cover mb-4" />
       {description && <p className="text-center mb-2">{description}</p>}
-      {price && <p className="text-center mb-4">{price}</p>}
+      {price && <p className="text-center mb-4">₹{price}</p>}
       <button
-        onClick={onBuyClick}
+        onClick={() => onBuyClick(price)}
         className="bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700"
       >
         BUY

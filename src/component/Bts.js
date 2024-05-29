@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import layoverImg from './lay.jpg'; // Adjust the import paths as necessary
 import purpleHoodieImg from './over.jpg';
 import whiteHoodieImg from './white.jpg';
@@ -21,12 +21,17 @@ import jiminImg from './jimin.jpg';
 import namImg from './nam.jpg';
 import jinImg from './jin.jpg';
 
+
 export const Bts = () => {
-  const handleBuyClick = () => {
-    window.location.href = '/Payment';
+  const navigate = useNavigate();
+  
+  const handleBuyClick = (price) => {
+    navigate('/Payment', { state: { totalAmount: price } });
   };
 
+
   return (
+    
     <div className="bg-purple-200	 w-full h-[2830px]	 text-black">
           <header className="bg-purple-800 h-[5%] text-white py-4 flex justify-center items-center">
         
@@ -53,25 +58,25 @@ export const Bts = () => {
           <Product
             imgSrc={layoverImg}
             description="LAYOVER NUDE COLOR HOODIE"
-            price="RS.3999"
+            price={3999}
             onBuyClick={handleBuyClick}
           />
           <Product
             imgSrc={purpleHoodieImg}
             description="LAYOVER PURPLE COLOR HOODIE"
-            price="RS.3999"
+            price={3999}
             onBuyClick={handleBuyClick}
           />
           <Product
             imgSrc={whiteHoodieImg}
             description="LAYOVER WHITE COLOR HOODIE"
-            price="RS.3999"
+            price={3999}
             onBuyClick={handleBuyClick}
           />
           <Product
             imgSrc={tshirtImg}
             description="LAYOVER T-SHIRT"
-            price="RS.2999"
+            price={2999}
             onBuyClick={handleBuyClick}
           />
         </div>
@@ -83,22 +88,22 @@ export const Bts = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
           <Product imgSrc={yoonImg} 
           description="SUGA HOODIE(white)"
-          price="Rs.4999"
+          price={4999}
           onBuyClick={handleBuyClick} />
 
           <Product imgSrc={agustImg}
           description="AGUST-D T-SHIRT"
-          price="Rs.2999"
+          price={2999}
           onBuyClick={handleBuyClick} />
 
           <Product imgSrc={dayImg} 
           description="D-DAY SWEATSHIRT"
-          price="Rs.3499"
+          price={3499}
           onBuyClick={handleBuyClick} />
 
           <Product imgSrc={blackImg} 
           description="AGUST-D T-SHIRT"
-          price="Rs.2999"
+          price={2999}
           onBuyClick={handleBuyClick} />
         </div>
 
@@ -109,22 +114,22 @@ export const Bts = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
           <Product imgSrc={sevenImg} 
           description="SEVEN WHITE HOODIE"
-          price="Rs.3999"
+          price={3999}
           onBuyClick={handleBuyClick} />
 
           <Product imgSrc={sevImg} 
           description="SEVEN BLACK T-SHIRT"
-          price="Rs.2999"
+          price={2999}
           onBuyClick={handleBuyClick} />
 
           <Product imgSrc={whiImg}
           description="SEVEN WHITE T-SHIRT"
-          price="Rs.2999"          
+          price={2999}          
           onBuyClick={handleBuyClick} />
 
           <Product imgSrc={sevblImg}
           description="SEVEN BLACK HOODIE"
-          price="Rs.3999"
+          price={3999}
           onBuyClick={handleBuyClick} />
         </div>
 
@@ -135,42 +140,42 @@ export const Bts = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
           <Product imgSrc={kookImg}
           description="JUNGKOOK PRINTED T-SHIRT"
-          price="Rs.2499"
+          price={2499}
           onBuyClick={handleBuyClick} />
 
           <Product imgSrc={minImg} 
           description="SUGA PRINTED T-SHIRT"
-          price="Rs.2499"
+          price={2499}
           onBuyClick={handleBuyClick} />
 
           <Product imgSrc={jiImg}
           description="JIMIN PRINTED T-SHIRT"
-          price="Rs.2499"
+          price={2499}
           onBuyClick={handleBuyClick} />
 
           <Product imgSrc={taeImg} 
           description="TAEHYUNG PRINTED T-SHIRT"
-          price="Rs.2499"
+          price={2499}
           onBuyClick={handleBuyClick} />
 
           <Product imgSrc={btssImg}
           description="BTS PRINTED T-SHIRT"
-          price="Rs.2499"
+          price={2499}
           onBuyClick={handleBuyClick} />
 
           <Product imgSrc={jiminImg} 
           description="JIMIN PRINTED T-SHIRT"
-          price="Rs.2499"
+          price={2499}
           onBuyClick={handleBuyClick} />
 
           <Product imgSrc={namImg} 
           description="NAMJOON PRINTED SWEATSHIRT"
-          price="Rs.2999"
+          price={2999}
           onBuyClick={handleBuyClick} />
 
           <Product imgSrc={jinImg}
           description="SEOKJIN PRINTED SWEATSHIRT"
-          price="Rs.2999"
+          price={2999}
           onBuyClick={handleBuyClick} />
         </div>
         <div className="flex justify-center mt-10">
@@ -188,9 +193,9 @@ const Product = ({ imgSrc, description, price, onBuyClick }) => {
     <div className="flex flex-col items-center">
       <img src={imgSrc} alt={description} className="w-full h-60 object-cover mb-4" />
       {description && <p className="text-center mb-2">{description}</p>}
-      {price && <p className="text-center mb-4">{price}</p>}
+      {price && <p className="text-center mb-4">₹{price}</p>}
       <button
-        onClick={onBuyClick}
+        onClick={() => onBuyClick(price)}
         className="bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700"
       >
         BUY
@@ -198,4 +203,3 @@ const Product = ({ imgSrc, description, price, onBuyClick }) => {
     </div>
   );
 };
-

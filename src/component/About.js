@@ -34,7 +34,7 @@ export const About = () => {
           K-PHORIA FASHION
         </h1>
         <section className="mt-10">
-          <h2 id="who" className="text-crimson text-4xl font-bold">
+          <h2 id="who" className="text-rose-600 underline-offset-auto		 text-4xl font-bold">
             WHO WE ARE
           </h2>
           <p className="text-xl mt-5">
@@ -44,10 +44,10 @@ export const About = () => {
           </p>
         </section>
         <section className="mt-10">
-          <h2 id="who" className="text-crimson text-4xl font-bold">
+          <h2 id="who" className="text-rose-600	 text-4xl font-bold">
             How we got to K-PHORIA FASHION
           </h2>
-          <p className="text-xl mt-5">
+          <p className=" text-xl mt-5">
             As everyone knows Korean Pop-Culture is embossed through beautiful and stylish outfits and while watching all this pretty idols and actors wearing such awesome outfits we started to desire to look like them.
           </p>
           <p className="text-xl mt-5 font-bold">
